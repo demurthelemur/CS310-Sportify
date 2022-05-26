@@ -1,4 +1,4 @@
-# sportify
+# cs310
 
 A new Flutter project.
 

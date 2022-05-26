@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(sportify LANGUAGES CXX)
+project(cs310 LANGUAGES CXX)
 
-set(BINARY_NAME "sportify")
+set(BINARY_NAME "cs310")
 
 cmake_policy(SET CMP0063 NEW)
 

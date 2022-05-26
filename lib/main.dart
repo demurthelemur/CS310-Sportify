@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'objects/styles.dart';
 import 'login.dart';
 import 'signup.dart';
-import 'styles.dart';
 
-void main() {
-  runApp(const myApp());
-}
+void main() => runApp(const MyApp());
 
-class myApp extends StatelessWidget {
-  const myApp({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: 'Sportify', home: WelcomePage());
+    return MaterialApp(
+      title: 'SPORTIFY',
+      home: WelcomePage(),
+    );
   }
 }
 
@@ -32,7 +33,7 @@ class WelcomePage extends StatelessWidget {
             ),
           ),
           centerTitle: true,
-          backgroundColor: Colors.red,
+          backgroundColor: AppColors.appbar,
         ),
         body: Container(
           color: Colors.black,
@@ -40,17 +41,17 @@ class WelcomePage extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                margin: const EdgeInsets.all(10),
+                margin: Dimensions.rPadding,
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.red, width: 10)),
-                child: Image.asset("assets/images/welcome.jpg"),
+                    border: Border.all(color: AppColors.appbar, width: 10)),
+                child: Image.asset("assets/welcome.jpeg"),
               ),
               Container(
                 height: 60,
                 width: 350,
                 margin: const EdgeInsets.fromLTRB(5, 20, 100, 10),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.red, width: 5)),
+                    border: Border.all(color: AppColors.appbar, width: 5)),
                 child: OutlinedButton(
                   onPressed: () {
                     Navigator.push(context,
@@ -59,10 +60,7 @@ class WelcomePage extends StatelessWidget {
                     }));
                   },
                   child: Text("Back In Town",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25)),
+                      style: welcomeText,),
                   style: ButtonStyle(
                       backgroundColor:
                           MaterialStateProperty.all<Color>(Colors.white)),
@@ -72,7 +70,7 @@ class WelcomePage extends StatelessWidget {
                 height: 60,
                 width: 350,
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.red, width: 5)),
+                    border: Border.all(color: AppColors.appbar, width: 5)),
                 margin: const EdgeInsets.fromLTRB(100, 20, 5, 10),
                 child: OutlinedButton(
                   onPressed: () {
@@ -83,10 +81,7 @@ class WelcomePage extends StatelessWidget {
                   },
                   child: Text(
                     "New Here",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25),
+                    style: welcomeText,
                   ),
                   style: ButtonStyle(
                       backgroundColor:
@@ -98,15 +93,12 @@ class WelcomePage extends StatelessWidget {
                 width: 350,
                 margin: const EdgeInsets.fromLTRB(5, 20, 100, 10),
                 decoration: BoxDecoration(
-                    border: Border.all(color: Colors.red, width: 5)),
+                    border: Border.all(color: AppColors.appbar, width: 5)),
                 child: OutlinedButton(
                   onPressed: () {},
                   child: Text(
                     "Use Facebook",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 25),
+                    style: welcomeText,
                   ),
                   style: ButtonStyle(
                       backgroundColor:

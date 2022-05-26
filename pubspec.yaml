@@ -1,4 +1,4 @@
-name: sportify
+name: cs310
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  email_validator: '^2.0.1'
   flutter:
     sdk: flutter
 
@@ -34,6 +35,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  toggle_switch: ^2.0.1
+  google_fonts: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -59,7 +62,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/welcome.jpg
+   - assets/egefitness1.jpeg
+   - assets/egefitness2.jpeg
+   - assets/red.jpeg
+   - assets/welcome.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
