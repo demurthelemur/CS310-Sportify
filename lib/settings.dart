@@ -1,20 +1,24 @@
-import 'package:cs310/main.dart';
+import 'package:cs310/welcome.dart';
 import 'package:flutter/material.dart';
-import './main.dart';
+import 'welcome.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'objects/styles.dart';
 import './edit.dart';
-class Settings extends StatefulWidget {
-  const Settings({Key? key}) : super(key: key);
+import 'objects/auth.dart';
+
+class Settin extends StatefulWidget {
+  const Settin({Key? key}) : super(key: key);
 
   @override
-  State<Settings> createState() => _SettingsState();
+  State<Settin> createState() => _SettinState();
 }
 
-class _SettingsState extends State<Settings> {
+class _SettinState extends State<Settin> {
   void buttonPressed() {
     print('Button Pressed in Function');
   }
+
+  final AuthService _auth = AuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -50,15 +54,17 @@ class _SettingsState extends State<Settings> {
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18.0),
                             side: BorderSide(color: AppColors.settings)))),
-                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
                     return EditPasswordPage();
-                  }));},
+                  }));
+                },
               )),
             ),
             Container(
               height: 70,
               width: 350,
-              margin:Dimensions.pPadding,
+              margin: Dimensions.pPadding,
               child: (ElevatedButton(
                 child: Text(
                   "Change username",
@@ -71,9 +77,11 @@ class _SettingsState extends State<Settings> {
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18.0),
                             side: BorderSide(color: AppColors.settings)))),
-                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) {
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
                     return EditUserNamePage();
-                  }));},
+                  }));
+                },
               )),
             ),
             Container(
@@ -148,6 +156,7 @@ class _SettingsState extends State<Settings> {
                             side: BorderSide(color: AppColors.settings)))),
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    _auth.signOut();
                     return WelcomePage();
                   }));
                 },
@@ -156,7 +165,6 @@ class _SettingsState extends State<Settings> {
           ],
         ),
       ),
-      
     );
   }
 }

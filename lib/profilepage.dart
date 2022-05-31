@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'objects/post.dart';
 import 'objects/postcard.dart';
@@ -8,6 +7,9 @@ import './notification.dart';
 import './addPost.dart';
 import './settings.dart';
 import 'objects/styles.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class ProfilePage extends StatefulWidget {
   final Profile profile;
   ProfilePage({Key? key, required this.profile}) : super(key: key);
@@ -63,7 +65,7 @@ class _ProfilePageState extends State<ProfilePage> {
             IconButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return Settings();
+                  return Settin();
                 }));
               },
               icon: const Icon(Icons.settings),
@@ -173,6 +175,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         const SizedBox(
                           width: 8,
                         ),
+                        
                       ],
                     ),
                     Column(
@@ -187,9 +190,13 @@ class _ProfilePageState extends State<ProfilePage> {
                                 },
                               ))
                           .toList(),
-                    )
+                    ),
+                 
                   ],
-                )),
+                  
+                ),
+                
+                ),
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(

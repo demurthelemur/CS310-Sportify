@@ -1,112 +1,72 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'objects/styles.dart';
-import 'login.dart';
-import 'signup.dart';
+import './welcome.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-void main() => runApp(const MyApp());
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: FirebaseOptions(
+      apiKey: "AIzaSyCA3eqqRrBTYtUQbqGzO9nUy-DHw53KqEs",
+      appId: "1:773915627934:ios:27a081f21879105d3f068f",
+      messagingSenderId: "773915627934",
+      projectId: "sport-6f516",
+    ),
+  );
+  runApp(MaterialApp(
+    home: MyFirebaseApp(),
+  ));
+}
+
+class MyFirebaseApp extends StatelessWidget {
+  final Future<FirebaseApp> _init = Firebase.initializeApp();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'SPORTIFY',
-      home: WelcomePage(),
+    return FutureBuilder(
+      future: _init,
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          return ErrorScreen(message: snapshot.error.toString());
+        }
+        if (snapshot.connectionState == ConnectionState.done) {
+          return const WelcomePage();
+        }
+        return const WaitingScreen();
+      },
     );
   }
 }
 
-class WelcomePage extends StatelessWidget {
-  const WelcomePage({Key? key}) : super(key: key);
+class ErrorScreen extends StatelessWidget {
+  const ErrorScreen({Key? key, required this.message}) : super(key: key);
+
+  final String message;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          elevation: 0.0,
-          title: const Text(
-            'SPORTIFY',
-            style: TextStyle(
-              fontSize: 32.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          centerTitle: true,
-          backgroundColor: AppColors.appbar,
-        ),
-        body: Container(
-          color: Colors.black,
-          height: 1000,
-          child: Column(
-            children: [
-              Container(
-                margin: Dimensions.rPadding,
-                decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.appbar, width: 10)),
-                child: Image.asset("assets/welcome.jpeg"),
-              ),
-              Container(
-                height: 60,
-                width: 350,
-                margin: const EdgeInsets.fromLTRB(5, 20, 100, 10),
-                decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.appbar, width: 5)),
-                child: OutlinedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return loginPage();
-                    }));
-                  },
-                  child: Text("Back In Town",
-                      style: welcomeText,),
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white)),
-                ),
-              ),
-              Container(
-                height: 60,
-                width: 350,
-                decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.appbar, width: 5)),
-                margin: const EdgeInsets.fromLTRB(100, 20, 5, 10),
-                child: OutlinedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return signupPage();
-                    }));
-                  },
-                  child: Text(
-                    "New Here",
-                    style: welcomeText,
-                  ),
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white)),
-                ),
-              ),
-              Container(
-                height: 60,
-                width: 350,
-                margin: const EdgeInsets.fromLTRB(5, 20, 100, 10),
-                decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.appbar, width: 5)),
-                child: OutlinedButton(
-                  onPressed: () {},
-                  child: Text(
-                    "Use Facebook",
-                    style: welcomeText,
-                  ),
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white)),
-                ),
-              )
-            ],
-          ),
-        ));
+      appBar: AppBar(
+        title: Text('SPORTIFY'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Text(message),
+      ),
+    );
+  }
+}
+
+class WaitingScreen extends StatelessWidget {
+  const WaitingScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: 'Sportify',
+        home: Builder(builder: (BuildContext context) {
+          return CircularProgressIndicator();
+        }));
   }
 }
