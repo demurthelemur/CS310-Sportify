@@ -1,16 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+
 
 class AuthService {
+  
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   Future<dynamic> loginWithEmailPass(String email, String pass) async {
     try {
-      UserCredential uc = await _auth.signInWithEmailAndPassword(
+      UserCredential uc =
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
         password: pass,
       );
-      
+
       return uc.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -29,6 +33,7 @@ class AuthService {
         email: email,
         password: pass,
       );
+
       return uc.user;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {

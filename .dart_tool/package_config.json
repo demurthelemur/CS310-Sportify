@@ -188,6 +188,24 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "firebase_analytics",
+      "rootUri": "file:///Users/serrasadir/development/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_analytics-9.1.9",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "firebase_analytics_platform_interface",
+      "rootUri": "file:///Users/serrasadir/development/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_analytics_platform_interface-3.1.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "firebase_analytics_web",
+      "rootUri": "file:///Users/serrasadir/development/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_analytics_web-0.4.0+14",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
       "name": "firebase_auth",
       "rootUri": "file:///Users/serrasadir/development/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.19",
       "packageUri": "lib/",
@@ -220,6 +238,18 @@
     {
       "name": "firebase_core_web",
       "rootUri": "file:///Users/serrasadir/development/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "firebase_crashlytics",
+      "rootUri": "file:///Users/serrasadir/development/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_crashlytics-2.8.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
+      "name": "firebase_crashlytics_platform_interface",
+      "rootUri": "file:///Users/serrasadir/development/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_crashlytics_platform_interface-3.2.7",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
@@ -632,7 +662,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-05-31T10:45:44.872323Z",
+  "generated": "2022-06-01T15:02:11.611188Z",
   "generator": "pub",
   "generatorVersion": "2.16.1"
 }

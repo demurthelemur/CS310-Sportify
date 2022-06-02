@@ -24,9 +24,10 @@ class _signupPageState extends State<signupPage> {
 
   Future signupUser() async {
     dynamic result = await _auth.registerUserWithEmailPass(_email, _pass);
+    print(result);
     if (result is String) {
       _scaffoldkey.currentState?.showSnackBar(SnackBar(
-        content: new Text('This email adress has already been used.'),
+        content: new Text(result.toString()),
         duration: new Duration(seconds: 10),
       ));
     } else if (result is User) {
@@ -35,7 +36,7 @@ class _signupPageState extends State<signupPage> {
       }));
     } else {
       _scaffoldkey.currentState?.showSnackBar(SnackBar(
-        content: new Text('sign up error'),
+        content: new Text(result.toString()),
         duration: new Duration(seconds: 10),
       ));
     }
@@ -184,6 +185,7 @@ class _signupPageState extends State<signupPage> {
                       _formKey.currentState!.save();
                       print('Email: $_email');
                       await signupUser();
+
                       await _auth.getUser(_username, _email, _pass);
                     } else {
                       Text('Your email is wrong!');

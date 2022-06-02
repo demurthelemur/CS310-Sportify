@@ -29,7 +29,8 @@ class WelcomePage extends StatelessWidget {
         ),
         body: Container(
           color: Colors.black,
-          height: 1000,
+          width: 1000,
+
           child: Column(
             children: [
               Container(
