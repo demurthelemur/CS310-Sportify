@@ -59,11 +59,14 @@ class _signupPageState extends State<signupPage> {
           backgroundColor: AppColors.appbar,
         ),
         body: Container(
-          color: Colors.black,
+          color: Color.fromARGB(212, 255, 255, 255),
           width: MediaQuery.of(context).size.width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Container(
+                height: 50,
+              ),
               Form(
                 key: _formKey,
                 child: Column(
@@ -175,10 +178,15 @@ class _signupPageState extends State<signupPage> {
               Container(
                 height: 60,
                 width: 300,
-                decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.appbar, width: 5)),
                 margin: Dimensions.wPadding,
-                child: OutlinedButton(
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(AppColors.appbar),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                              side: BorderSide(color: AppColors.appbar)))),
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       print('Email: $_email');
@@ -195,9 +203,6 @@ class _signupPageState extends State<signupPage> {
                     "Sign Up",
                     style: welcomeText,
                   ),
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white)),
                 ),
               ),
             ],

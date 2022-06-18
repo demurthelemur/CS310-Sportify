@@ -3,12 +3,6 @@ import 'objects/styles.dart';
 import 'login.dart';
 import 'signup.dart';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'objects/auth.dart';
-
-
-
-
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
 
@@ -28,42 +22,37 @@ class WelcomePage extends StatelessWidget {
           backgroundColor: AppColors.appbar,
         ),
         body: Container(
-          color: Colors.black,
+          color: Color.fromARGB(212, 255, 255, 255),
           width: 1000,
-
           child: Column(
             children: [
               Container(
                 margin: Dimensions.rPadding,
-                decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.appbar, width: 10)),
                 child: Image.asset("assets/welcome.jpeg"),
               ),
               Container(
                 height: 60,
                 width: 350,
                 margin: const EdgeInsets.fromLTRB(5, 20, 100, 10),
-                decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.appbar, width: 5)),
-                child: OutlinedButton(
+                child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
                       return loginPage();
                     }));
                   },
-                  child: Text("Back In Town",
-                      style: welcomeText,),
+                  child: Text(
+                    "Login",
+                    style: welcomeText,
+                  ),
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white)),
+                          MaterialStateProperty.all<Color>(AppColors.appbar)),
                 ),
               ),
               Container(
                 height: 60,
                 width: 350,
-                decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.appbar, width: 5)),
                 margin: const EdgeInsets.fromLTRB(100, 20, 5, 10),
                 child: OutlinedButton(
                   onPressed: () {
@@ -78,15 +67,13 @@ class WelcomePage extends StatelessWidget {
                   ),
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white)),
+                          MaterialStateProperty.all<Color>(AppColors.appbar)),
                 ),
               ),
               Container(
                 height: 60,
                 width: 350,
                 margin: const EdgeInsets.fromLTRB(5, 20, 100, 10),
-                decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.appbar, width: 5)),
                 child: OutlinedButton(
                   onPressed: () {},
                   child: Text(
@@ -95,7 +82,7 @@ class WelcomePage extends StatelessWidget {
                   ),
                   style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white)),
+                          MaterialStateProperty.all<Color>(AppColors.appbar)),
                 ),
               )
             ],

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppColors {
-  static const Color appbar = Color.fromARGB(255, 208, 53, 42);
+  static const Color appbar = Color.fromARGB(255, 42, 150, 208);
   static const Color settings = Color.fromARGB(255, 119, 119, 119);
 }
 
@@ -22,4 +22,4 @@ final settingsText = GoogleFonts.montserrat(
 );
 
 final welcomeText = GoogleFonts.abel(
-    color: Colors.black, fontWeight: FontWeight.bold, fontSize: 25);
+    color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25);

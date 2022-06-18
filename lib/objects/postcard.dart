@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'post.dart';
 
-
 class PostCard extends StatelessWidget {
   final Post post;
   final VoidCallback delete;
   final VoidCallback increament;
   PostCard(
-      {Key? key, required this.post, required this.delete, required this.increament}) : super(key: key);
+      {Key? key,
+      required this.post,
+      required this.delete,
+      required this.increament})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +31,10 @@ class PostCard extends StatelessWidget {
             Container(
               width: 50,
               height: 200,
-              margin: const EdgeInsets.all(12.0),
+              margin: const EdgeInsets.all(18.0),
               decoration: BoxDecoration(
-                
                   image: DecorationImage(
                     image: AssetImage(post.photo),
-                    
                     fit: BoxFit.fill,
                   ),
                   boxShadow: const [
@@ -43,8 +44,6 @@ class PostCard extends StatelessWidget {
                     )
                   ]),
             ),
-
-
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [

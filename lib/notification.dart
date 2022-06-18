@@ -5,6 +5,7 @@ import './addPost.dart';
 import './profilepage.dart';
 import 'objects/post.dart';
 import 'objects/styles.dart';
+
 class NotificationPage extends StatefulWidget {
   const NotificationPage({Key? key}) : super(key: key);
 
@@ -78,7 +79,7 @@ class _NotificationPageState extends State<NotificationPage> {
         ))),
         bottomNavigationBar: BottomNavigationBar(
           iconSize: 20,
-          fixedColor: Colors.red,
+          fixedColor: AppColors.appbar,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
@@ -127,7 +128,7 @@ class SingleNotification extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.blueGrey,
           border: Border.all(
-            color: Colors.red,
+            color: AppColors.appbar,
           ),
           borderRadius: BorderRadius.all(Radius.circular(20))),
       child: Row(
